@@ -6,6 +6,8 @@ Team project for the **Machine Learning** course, Bachelor in Artificial Intelli
 
 ![Python](https://img.shields.io/badge/Python-3-blue) ![scikit--learn](https://img.shields.io/badge/scikit--learn-ML-orange) ![Streamlit](https://img.shields.io/badge/Streamlit-app-red)
 
+![OnTime AI dashboard](images/ontime-ai-screenshot.png)
+
 ## What it does
 
 Commuters often don't know how long a trip will take. OnTime AI lets you pick a **metro line**, a **stop** and a **model**, and returns an estimated travel time to that stop, together with a chart showing which factors weigh most in the prediction.
@@ -49,5 +51,5 @@ Img/                 Logo assets
 
 ## What I'd improve next
 
-- The near-zero error suggests some features (distance and average speed) almost directly determine travel time. A next version would remove them and predict real delays from scheduled vs. observed times.
+- The near-zero error comes from data leakage: the target (`travel_time_to_stop_sec`) is also in the input feature list, so the model can simply copy it, as the coefficient chart shows. A next version would remove it (and closely derived features such as average speed) and predict real delays from scheduled vs. observed times.
 - Make the selected day of the week part of the model input.
